@@ -1,6 +1,6 @@
 @{
     RootModule        = 'PSAgentEval.psm1'
-    ModuleVersion     = '0.1.0'
+    ModuleVersion     = '0.1.1'
     GUID              = 'a7d4e2b1-3f86-4c91-b5d7-9e1a2c3f0d85'
     Author            = 'Anthony Guimelli'
     CompanyName       = 'Ralliant'

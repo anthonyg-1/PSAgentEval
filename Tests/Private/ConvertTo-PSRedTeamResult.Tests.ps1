@@ -1,8 +1,11 @@
 #Requires -Version 7.0
 #Requires -Modules @{ ModuleName = 'Pester'; ModuleVersion = '5.0' }
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Pester BeforeAll variables are accessible in It blocks')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Justification = 'New-Mock* are test factory helpers, not state-changing cmdlets')]
+param()
 
 BeforeAll {
-    . (Join-Path $PSScriptRoot '..' '..' 'Private' 'ConvertTo-PSRedTeamResult.ps1')
+    . (Join-Path -Path $PSScriptRoot -ChildPath '..' -AdditionalChildPath '..', 'Private', 'ConvertTo-PSRedTeamResult.ps1')
 
     function New-MockProbe {
         param(
@@ -16,7 +19,7 @@ BeforeAll {
             [string]$Reason       = 'Agent refused.',
                     $MatchedItems = $null,
             [bool]  $HasError     = $false,
-                    $Error        = $null
+                    $ErrorRecord  = $null
         )
         [PSCustomObject]@{
             ProbeId      = $ProbeId
@@ -30,7 +33,7 @@ BeforeAll {
             MatchedItems = $MatchedItems
             Duration     = [System.TimeSpan]::FromMilliseconds(350)
             HasError     = $HasError
-            Error        = $Error
+            Error        = $ErrorRecord
         }
     }
 
@@ -155,7 +158,7 @@ Describe 'ConvertTo-PSProbeResult' {
     Context 'Probe with an error' {
         BeforeAll {
             $result = ConvertTo-PSProbeResult -Probe (
-                New-MockProbe -HasError $true -Error 'Timeout after 30s'
+                New-MockProbe -HasError $true -ErrorRecord 'Timeout after 30s'
             )
         }
 

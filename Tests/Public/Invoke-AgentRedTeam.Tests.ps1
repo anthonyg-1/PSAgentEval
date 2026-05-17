@@ -1,8 +1,10 @@
 #Requires -Version 7.0
 #Requires -Modules @{ ModuleName = 'Pester'; ModuleVersion = '5.0' }
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'Pester BeforeAll/BeforeEach variables are accessible in It/AfterEach blocks')]
+param()
 
 BeforeAll {
-    $modulePath = Join-Path $PSScriptRoot '..' '..' 'PSAgentEval.psd1'
+    $modulePath = Join-Path -Path $PSScriptRoot -ChildPath '..' -AdditionalChildPath '..', 'PSAgentEval.psd1'
     $modulePath = (Resolve-Path $modulePath).Path
     Import-Module $modulePath -Force -ErrorAction Stop
 }

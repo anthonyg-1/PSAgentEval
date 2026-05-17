@@ -2,7 +2,7 @@
 #Requires -Modules @{ ModuleName = 'Pester'; ModuleVersion = '5.0' }
 
 BeforeAll {
-    $modulePath = Join-Path $PSScriptRoot '..' 'PSAgentEval.psd1'
+    $modulePath = Join-Path -Path $PSScriptRoot -ChildPath '..' -AdditionalChildPath 'PSAgentEval.psd1'
     if (-not (Test-Path $modulePath)) {
         throw "Module manifest not found at: $modulePath"
     }
@@ -21,8 +21,8 @@ Describe 'PSAgentEval Module' {
             { Test-ModuleManifest -Path $modulePath -ErrorAction Stop } | Should -Not -Throw
         }
 
-        It 'Reports version 0.1.0' {
-            (Test-ModuleManifest -Path $modulePath).Version | Should -Be '0.1.0'
+        It 'Reports version 0.1.1' {
+            (Test-ModuleManifest -Path $modulePath).Version | Should -Be '0.1.1'
         }
 
         It 'Requires PowerShell 7.0 or higher' {
