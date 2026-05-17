@@ -21,12 +21,12 @@ Describe 'PSAgentEval Module' {
             { Test-ModuleManifest -Path $modulePath -ErrorAction Stop } | Should -Not -Throw
         }
 
-        It 'Reports version 0.1.1' {
-            (Test-ModuleManifest -Path $modulePath).Version | Should -Be '0.1.1'
+        It 'Reports version 0.1.2' {
+            (Test-ModuleManifest -Path $modulePath).Version | Should -Be '0.1.2'
         }
 
-        It 'Requires PowerShell 7.0 or higher' {
-            (Test-ModuleManifest -Path $modulePath).PowerShellVersion | Should -Be '7.0'
+        It 'Requires PowerShell 7.4.2 or higher' {
+            (Test-ModuleManifest -Path $modulePath).PowerShellVersion | Should -Be '7.4.2'
         }
     }
 

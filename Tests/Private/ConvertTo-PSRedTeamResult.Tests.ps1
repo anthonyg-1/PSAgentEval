@@ -276,7 +276,7 @@ Describe 'ConvertTo-PSRedTeamResult' {
                 )
                 FailedAttacks      = @([PSCustomObject]@{ AttackName = 'Jailbreak' })
             }
-            $result = ConvertTo-PSRedTeamResult -Result $mockResult
+            $result = ConvertTo-PSRedTeamResult -Result $mockResult -Model 'claude-opus-4-7'
         }
 
         It 'Converts Verdict via ToString' {
@@ -345,7 +345,7 @@ Describe 'ConvertTo-PSRedTeamResult' {
                 StartedAt=[System.DateTimeOffset]::UtcNow; CompletedAt=[System.DateTimeOffset]::UtcNow
                 Duration=[System.TimeSpan]::Zero; AgentName='ClaudeAgent'; Summary='All clear.'
                 AttackResults=@(); FailedAttacks=@()
-            })
+            }) -Model 'claude-opus-4-7'
         }
 
         It 'Maps Verdict as Pass' {
@@ -373,7 +373,7 @@ Describe 'ConvertTo-PSRedTeamResult' {
                 StartedAt=[System.DateTimeOffset]::UtcNow; CompletedAt=[System.DateTimeOffset]::UtcNow
                 Duration=[System.TimeSpan]::Zero; AgentName='ClaudeAgent'; Summary='OK'
                 AttackResults=@(); FailedAttacks=@()
-            })).PSObject.Properties.Name
+            }) -Model 'claude-opus-4-7').PSObject.Properties.Name
         }
 
         It 'Has property <_>' -ForEach @(

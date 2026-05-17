@@ -43,14 +43,20 @@ Describe 'Invoke-AgentRedTeam' {
             $err = $null
             try { Invoke-AgentRedTeam -ApiKey 'sk-test' } catch { $err = $_ }
             $err.FullyQualifiedErrorId | Should -Not -Be 'MissingApiKey,Invoke-AgentRedTeam' `
-                -Because 'any subsequent error is a scan/network error, not the key guard'
+                -Because 'any subsequent error is a key-validation or scan error, not the empty-key guard'
         }
 
         It 'Does not throw MissingApiKey when the env var is set' {
             $env:ANTHROPIC_API_KEY = 'sk-env-test'
             $err = $null
             try { Invoke-AgentRedTeam } catch { $err = $_ }
-            $err.FullyQualifiedErrorId | Should -Not -Be 'MissingApiKey,Invoke-AgentRedTeam'
+            $err.FullyQualifiedErrorId | Should -Not -Be 'MissingApiKey,Invoke-AgentRedTeam' `
+                -Because 'any subsequent error is a key-validation or scan error, not the empty-key guard'
+        }
+
+        It 'Throws InvalidApiKey when a bogus key is supplied' {
+            { Invoke-AgentRedTeam -ApiKey 'sk-ant-bogus' } |
+                Should -Throw -ErrorId 'InvalidApiKey,Invoke-AgentRedTeam'
         }
     }
 

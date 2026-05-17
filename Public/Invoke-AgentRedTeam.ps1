@@ -152,6 +152,16 @@ function Invoke-AgentRedTeam {
         $PSCmdlet.ThrowTerminatingError($err)
     }
 
+    try {
+        Test-ApiKey -ApiKey $ApiKey
+    }
+    catch {
+        $err = [System.Management.Automation.ErrorRecord]::new(
+            $_.Exception, 'InvalidApiKey',
+            [System.Management.Automation.ErrorCategory]::AuthenticationError, $null)
+        $PSCmdlet.ThrowTerminatingError($err)
+    }
+
     Write-Progress -Activity 'Invoke-AgentRedTeam' `
                    -Status "Running $Intensity scan against $Model..." `
                    -PercentComplete -1
