@@ -1,0 +1,21 @@
+# Backup DLLs from version replacement
+libs.bak/
+
+# Scan output files
+redteam-*.json
+
+# macOS
+.DS_Store
+
+# PowerShell
+*.pssproj
+*.pssproj.user
+
+# Claude Code project files
+.claude/
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.user

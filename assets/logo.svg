@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160">
+  <!-- Background: PowerShell dark blue -->
+  <rect width="520" height="160" rx="14" fill="#012456"/>
+
+  <!-- Red-team accent bar -->
+  <rect x="0" y="0" width="7" height="160" rx="3.5" fill="#C0392B"/>
+
+  <!-- Window chrome dots -->
+  <circle cx="28" cy="22" r="5" fill="#FF5F56"/>
+  <circle cx="46" cy="22" r="5" fill="#FFBD2E"/>
+  <circle cx="64" cy="22" r="5" fill="#27C93F"/>
+
+  <!-- Divider line -->
+  <line x1="0" y1="36" x2="520" y2="36" stroke="#1a3a6e" stroke-width="1"/>
+
+  <!-- PS prompt -->
+  <text x="24" y="80" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="26" fill="#4FC3F7" font-weight="bold">PS</text>
+  <text x="64" y="80" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="26" fill="#EEEDF0"> C:\&gt; </text>
+  <text x="165" y="80" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="26" fill="#4EC9B0">Invoke-AgentRedTeam</text>
+
+  <!-- Blinking cursor -->
+  <rect x="497" y="58" width="14" height="26" rx="2" fill="#EEEDF0" opacity="0.85"/>
+
+  <!-- Module name -->
+  <text x="24" y="122" font-family="'Segoe UI','SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="32" fill="#EEEDF0" font-weight="700" letter-spacing="0.5">PSAgentEval</text>
+
+  <!-- Tagline -->
+  <text x="24" y="148" font-family="'Segoe UI','SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="13" fill="#4FC3F7" letter-spacing="2.5">POWERSHELL  ·  AI AGENT  ·  RED TEAM EVALUATION</text>
+</svg>
