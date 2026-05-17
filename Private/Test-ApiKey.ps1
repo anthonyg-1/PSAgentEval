@@ -23,8 +23,13 @@ function Test-ApiKey {
         ).GetAwaiter().GetResult() | Out-Null
     }
     catch {
+        # .GetAwaiter().GetResult() wraps the real exception in a MethodInvocationException;
+        # peel it off so the message shows the Anthropic error, not the PowerShell wrapper.
+        $inner  = $_.Exception.InnerException
+        $msg    = if ($null -ne $inner) { $inner.Message } else { $_.Exception.Message }
+        $source = if ($null -ne $inner) { $inner } else { $_.Exception }
         $ex  = [System.UnauthorizedAccessException]::new(
-            "API key validation failed: $($_.Exception.Message)", $_.Exception)
+            "API key validation failed: $msg", $source)
         $err = [System.Management.Automation.ErrorRecord]::new(
             $ex, 'InvalidApiKey',
             [System.Management.Automation.ErrorCategory]::AuthenticationError, $null)
