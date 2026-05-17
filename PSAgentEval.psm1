@@ -54,6 +54,5 @@ Get-ChildItem -Path (Join-Path $PSScriptRoot 'Public') -Filter '*.ps1' |
 
 Export-ModuleMember -Function 'Invoke-AgentRedTeam'
 
-Write-Warning ('PSAgentEval relies on AgentEval libraries that are in preview (work in progress). ' +
-               'APIs and behavior may change without notice. ' +
-               'Do not use in production or safety-critical systems without independent review.')
+# Emitted once per session from Invoke-AgentRedTeam so -WarningAction is respected.
+$script:_previewWarningShown = $false
