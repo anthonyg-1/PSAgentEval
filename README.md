@@ -36,6 +36,9 @@ Send up to 192 pre-written adversarial probes across 9 attack categories and rec
 # Install the Anthropic API key (add to your profile for persistence)
 $env:ANTHROPIC_API_KEY = 'sk-ant-...'
 
+# Optimally you should not have an API key in clear text, hence use Get-Secret from the Microsoft.PowerShell.SecretManagement module like so:
+$env:ANTHROPIC_API_KEY = Get-Secret -Name ANTHROPIC_API_KEY
+
 # Import the module
 Import-Module ./PSAgentEval.psd1
 
@@ -180,17 +183,8 @@ Import-Module ./PSAgentEval.psd1
 ```
 
 **Requirements:**
-- PowerShell 7.0 or higher
+- PowerShell 7.4.2 or higher
 - An [Anthropic API key](https://console.anthropic.com/)
-
----
-
-## Running Tests
-
-```powershell
-Import-Module Pester -MinimumVersion 5.0
-Invoke-Pester ./Tests
-```
 
 ---
 
