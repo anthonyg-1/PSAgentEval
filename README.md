@@ -37,7 +37,7 @@ Send up to 192 pre-written adversarial probes across 9 attack categories and rec
 $env:ANTHROPIC_API_KEY = 'sk-ant-...'
 
 # Optimally you should not have an API key in clear text, hence use Get-Secret from the Microsoft.PowerShell.SecretManagement module like so:
-$env:ANTHROPIC_API_KEY = Get-Secret -Name ANTHROPIC_API_KEY
+$env:ANTHROPIC_API_KEY = Get-Secret -Name ANTHROPIC_API_KEY -AsPlainText
 
 # Import the module
 Import-Module ./PSAgentEval.psd1
