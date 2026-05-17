@@ -1,11 +1,10 @@
 @{
     RootModule        = 'PSAgentEval.psm1'
-    ModuleVersion     = '0.1.1'
+    ModuleVersion     = '0.1.2'
     GUID              = 'a7d4e2b1-3f86-4c91-b5d7-9e1a2c3f0d85'
     Author            = 'Anthony Guimelli'
-    CompanyName       = 'Ralliant'
     Description       = 'PowerShell script module wrapping AgentEval red team security evaluation for Claude AI agents.'
-    PowerShellVersion = '7.0'
+    PowerShellVersion = '7.4.2'
     FunctionsToExport = @('Invoke-AgentRedTeam')
     CmdletsToExport   = @()
     AliasesToExport   = @()
