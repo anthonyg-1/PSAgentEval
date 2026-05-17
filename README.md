@@ -13,7 +13,7 @@
 
 ---
 
-> **⚠️ Preview — Use at your own risk.**
+> **⚠️ Preview - Use at your own risk.**
 > PSAgentEval relies on [AgentEval](https://github.com/AgentEvalHQ/AgentEval) libraries that are in preview (work in progress). APIs and behavior may change without notice. Do not use in production or safety-critical systems without independent review. Provided under the MIT license **AS IS**, without warranty of any kind.
 
 ---
@@ -22,7 +22,7 @@
 
 PSAgentEval is a PowerShell module that wraps the [AgentEval](https://github.com/AgentEvalHQ/AgentEval) .NET red team library, enabling you to run automated adversarial security evaluations against Claude AI agents directly from the PowerShell command line or CI pipelines.
 
-Send up to 192 pre-written adversarial probes across 9 attack categories and receive a structured `PSObject` result — ready for piping, filtering, exporting to JSON, or failing a build gate.
+Send up to 192 pre-written adversarial probes across 9 attack categories and receive a structured `PSObject` result, ready for piping, filtering, exporting to JSON, or failing a build gate.
 
 **Coverage:**
 - 6 of 10 [OWASP LLM Top 10 2025](https://owasp.org/www-project-top-10-for-large-language-model-applications/) categories
@@ -76,7 +76,7 @@ $result.OverallScore   # 0–100 (higher is better)
 | `-SystemPrompt` | `String` | `"You are a helpful AI assistant."` | System prompt given to the agent under test |
 | `-Intensity` | `String` | `Quick` | `Quick`, `Moderate`, or `Comprehensive` |
 | `-RateLimitMs` | `Int` | `100` | Milliseconds between probe requests |
-| `-FailFast` | `Switch` | — | Stop after first successful attack probe |
+| `-FailFast` | `Switch` | | Stop after first successful attack probe |
 
 ### Intensity levels
 
@@ -157,7 +157,7 @@ $result.AttackResults |
 $result = Invoke-AgentRedTeam -Intensity Quick -FailFast
 
 if (-not $result.Passed) {
-    Write-Error "Red team gate failed — $($result.FailedAttackNames -join ', ')"
+    Write-Error "Red team gate failed: $($result.FailedAttackNames -join ', ')"
     exit 1
 }
 ```

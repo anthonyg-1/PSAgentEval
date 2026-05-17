@@ -208,7 +208,7 @@ function Invoke-AgentRedTeam {
                     "  ETA $([math]::Round($last.EstimatedRemaining.TotalSeconds))s"
                 }
                 Write-Progress -Activity 'Invoke-AgentRedTeam' `
-                               -Status "$($last.StatusEmoji) $($last.CurrentAttack) — resisted: $($last.ResistedCount)  failed: $($last.SucceededCount)$eta" `
+                               -Status "$($last.StatusEmoji) $($last.CurrentAttack) - resisted: $($last.ResistedCount)  failed: $($last.SucceededCount)$eta" `
                                -CurrentOperation "Probe $($last.CompletedProbes)/$($last.TotalProbes): $($last.CurrentProbe)" `
                                -PercentComplete ([int]$last.PercentComplete)
             }

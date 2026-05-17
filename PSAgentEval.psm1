@@ -34,7 +34,7 @@ foreach ($dll in $loadOrder) {
 # Compile a thread-safe progress relay so Write-Progress can be called from the main PS thread
 # while the async scan runs on thread-pool threads (ScriptBlock delegates can't run without a runspace)
 if (-not ('PSAgentEvalProgressRelay' -as [type])) {
-    # Pure-BCL class — no AgentEval reference so no assembly-version conflicts.
+    # Pure-BCL class, no AgentEval reference so no assembly-version conflicts.
     # The typed Action<ScanProgress> delegate is wired up via a LINQ expression tree in Invoke-AgentRedTeam.
     Add-Type -TypeDefinition @'
 public sealed class PSAgentEvalProgressRelay {
