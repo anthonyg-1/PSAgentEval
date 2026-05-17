@@ -4,7 +4,7 @@
 
 **PowerShell AI Agent Red Team Evaluation**
 
-[![PowerShell 7+](https://img.shields.io/badge/PowerShell-7.0%2B-blue?logo=powershell)](https://github.com/PowerShell/PowerShell)
+[![PowerShell 7.5+](https://img.shields.io/badge/PowerShell-7.5%2B-blue?logo=powershell)](https://github.com/PowerShell/PowerShell)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Preview](https://img.shields.io/badge/status-preview-orange)](https://github.com/AgentEvalHQ/AgentEval)
 [![AgentEval](https://img.shields.io/badge/powered%20by-AgentEval-blue)](https://github.com/AgentEvalHQ/AgentEval)
@@ -183,7 +183,7 @@ Import-Module ./PSAgentEval.psd1
 ```
 
 **Requirements:**
-- PowerShell 7.4.2 or higher
+- PowerShell 7.5.0 or higher
 - An [Anthropic API key](https://console.anthropic.com/)
 
 ---
