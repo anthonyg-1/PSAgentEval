@@ -6,7 +6,6 @@
     Description       = 'PowerShell script module wrapping AgentEval red team security evaluation for Claude AI agents.'
     PowerShellVersion = '7.5.0'
     FunctionsToExport = @('Invoke-AgentRedTeam')
-    CmdletsToExport   = @()
     AliasesToExport   = @()
     PrivateData = @{
         PSData = @{
